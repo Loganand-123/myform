@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="From_2.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header">
+			<h2>Create Account</h2>
+		</div>
+		<form id="form" class="form">
+			<div class="form-control">
+				<label for="username">Username</label>
+				<input type="text" placeholder="username" id="username" autofocus/>
+				<i class="fa fa-check-circle"></i>
+				<i class="fa fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="username">Email</label>
+				<input type="email" placeholder="abc@gmail.com" id="email" />
+				<i class="fa fa-check-circle"></i>
+				<i class="fa fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="username">Password</label>
+				<input type="password" placeholder="Password" id="password" />
+				<i class="fa fa-check-circle"></i>
+				<i class="fa fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="username">Password check</label>
+				<input type="password" placeholder="Password two" id="password2" />
+				<i class="fa fa-check-circle"></i>
+				<i class="fa fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<button id="submitbtn" onclick="openPopup()">Submit</button>
+		</form>
+		<div class="popup" id="popup">
+			<img src="OIP.jpg">
+			<!-- <i class="fa fa-close" ></i> -->
+			<button id="btn2" onclick="resetForm()"><i class="fa fa-close"></i></button>
+			<h2>Thank you</h2>
+			<div id="getValue"></div>
+			<p>Your details has been successfully submitted. Thanks</p>
+			<button id="btn1" type="button" onclick="closePopup()">ok</button>
+		</div>
+	</div>
+</body>
+<script src="From_2.js"></script>
+
+<!-- ................... -->
+
+<script>
+
+var text=document.getElementById("getValue");
+var sub=document.getElementById("submitbtn");
+
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+		// checkInputs();
+	});
+
+	let Popup = document.getElementById("popup");
+
+	function openPopup() {
+
+		
+
+			
+		const username1 = username.value;
+		const password1 = password.value;
+		const email1 = email.value;
+		const password3 = password2.value;	
+		
+		Popup.classList.add("open-popup");
+		const usernameElement = document.createElement("p");
+		usernameElement.innerHTML = `<b>Username : </b>${username1}`
+		getValue.appendChild(usernameElement)
+		
+		
+		
+		const emailElement = document.createElement("p");
+		emailElement.innerHTML = `<b>E-Mail : </b> ${email1}`;
+		getValue.appendChild(emailElement)
+		
+		
+		
+
+		const passwordElement = document.createElement("p");
+		passwordElement.innerHTML = `<b>Password : </b> ${password1}`
+		getValue.appendChild(passwordElement)
+		
+		
+		
+		const passwordsElement = document.createElement("p");
+		passwordsElement.innerHTML = `<b>Password Ceck : </b>${password3}`
+		getValue.appendChild(passwordsElement)
+		
+		
+		
+		console.log(username1);
+		console.log(password1);
+		console.log(email1);
+		console.log(password3);
+		
+		// sub.style.display="none";
+		
+		
+	}
+	
+	
+	// function openPopup(){
+	// 	popup.classList.add("open-popup");
+	// }
+	function closePopup() {
+		popup.classList.remove("open-popup");
+		text.innerHTML="";
+		sub.style.display="block";
+	}
+	function resetForm() {
+		var form = document.getElementById("form").reset();
+		popup.classList.remove("open-popup");
+		text.innerHTML="";
+		sub.style.display="block";
+
+		
+	}
+// var submitButton = document.getElementById("Submitbtn");
+
+// submitButton.addEventListener("click", function() {
+// submitButton.style.display = 'none';
+// });
+</script>
+
+</html>
